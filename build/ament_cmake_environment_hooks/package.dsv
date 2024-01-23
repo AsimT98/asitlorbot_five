@@ -1,0 +1,4 @@
+source;share/asitlorbot_five_controller/local_setup.bash
+source;share/asitlorbot_five_controller/local_setup.dsv
+source;share/asitlorbot_five_controller/local_setup.sh
+source;share/asitlorbot_five_controller/local_setup.zsh
