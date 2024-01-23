@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <!-- TRANSMISSION TAG INDICATES THE PRESENCE OF A MECHANCIAL TRANSMISSION THAT CONNECTS EACH MOTOR OF THE ROBOT TO EACH LINK OF THE LINK -->
+    <transmission name="joint_front_left_tran">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <joint name="left_front_wheel_hinge">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_front_left_actr">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <!-- 1 DEGREE OF ROTATION OF MOTOR CORRESPONDS TO 1 DEGREE OF ROTATION OF WHEEL -->
+            <mechanicalReduction>1.0</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="joint_front_right_tran">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <joint name="right_front_wheel_hinge">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_front_right_actr">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1.0</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="joint_rear_left_tran">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <joint name="left_back_wheel_hinge">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_rear_left_actr">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="joint_rear_right_tran">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <joint name="right_back_wheel_hinge">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="joint_rear_right_actr">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+
+</robot>
