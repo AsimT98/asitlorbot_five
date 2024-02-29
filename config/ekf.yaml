@@ -1,70 +1,73 @@
 ekf_filter_node:
-    ros__parameters:
-      frequency: 30.0
-      two_d_mode: true #use this filter only for the estimation of 2d pose  
+  ros__parameters:
+    frequency: 30.0
+    two_d_mode: true   #use this filter only for the estimation of 2d pose  
 
-      # Whether to broadcast the transformation over the /tf topic. Defaults to true if unspecified.
-      publish_tf: true
-      map_frame: map              # Defaults to "map" if unspecified
-      odom_frame: odom            # Defaults to "odom" if unspecified
-      base_link_frame: base_footprint_ekf  # Defaults to "base_link" if unspecified
-      world_frame: odom           # Defaults to the value of odom_frame if unspecified
+    # Whether to broadcast the transformation over the /tf topic. Defaults to true if unspecified.
+    publish_tf: true
+    map_frame: map                # Defaults to "map" if unspecified
+    odom_frame: odom              # Defaults to "odom" if unspecified
+    base_link_frame: base_footprint_ekf    # Defaults to "base_link" if unspecified
+    world_frame: odom             # Defaults to the value of odom_frame if unspecified
 
-      # IMU Configuration
-      imu0: imu_ekf
-      imu0_config: [false, false, false,
-                    false, false, true,
-                    false, false, false,
-                    false, false, true,
-                    true,  false, false]
+    # IMU Configuration
+    imu0: imu_ekf
+    imu0_config: [false, false, false, 
+                  false, false, true, 
+                  false, false, false, 
+                  false, false, true, 
+                  true, false, false]
 
-      imu0_differential: true
-      
-      imu0_pose_use_child_frame: false
+    imu0_differential: true
 
-      odom0: asitlorbot_five_controller/odom_noisy
+    imu0_pose_use_child_frame: false
 
-      odom0_config: [false, false, false,
-                     false, false, false,
-                     true,  true,  false,
-                     false, false, true,
-                     false, false, false]
+    odom0: asitlorbot_five_controller/odom_noisy
 
-      odom0_differential: true
-      
-      odom0_pose_use_child_frame: false
-      # 6,7,8,12,12,13,
-      process_noise_covariance: [0.05,   0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.05,   0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.06,   0.0,    0.0,    0.0,    0.0,     0.0,     0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.03,   0.0,    0.0,    0.0,     0.0,     0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.03,   0.0,    0.0,     0.0,     0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.01,   0.0,     0.0,     0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.025,   0.0,     0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.025,   0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.04,   0.0,    0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,    0.01,   0.0,    0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,    0.0,    0.01,   0.0,    0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,    0.0,    0.0,    0.02,   0.0,    0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,    0.0,    0.0,    0.0,    0.01,   0.0,    0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,    0.0,    0.0,    0.0,    0.0,    0.01,   0.0,
-                                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.015]
+    odom0_config: [false, false, false, 
+                   false, false, false, 
+                   true, true, false, 
+                   false, false, false, 
+                   false, false, false]
+
+    odom0_differential: true
+
+    odom0_pose_use_child_frame: false
+    # 6,7,8,12,12,13,
+    # 1,17,33,49,65,81,97,113,129,145,161,177,193,209,225
+    process_noise_covariance:   [1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    0.0000000088,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,
+                                 1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9]
+
+
 
                                   
-      dynamic_process_noise_covariance: false
-      print_diagnostics: true
-      initial_estimate_covariance: [1e-5,   0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    1e-5,   0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    1e-5,   0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    1e-5,   0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    1e-5,   0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    1e-5,   0.0,    0.0,    0.0,    0.0,     0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    1e-5,   0.0,    0.0,    0.0,     0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    1e-5,   0.0,    0.0,     0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    1e-5,   0.0,     0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    1e-5,    0.0,     0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     1e-5,    0.0,     0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     1e-5,    0.0,    0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,     1e-5,   0.0,    0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,     0.0,    1e-5,   0.0,
-                                    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,     0.0,     0.0,     0.0,    0.0,    1e-5]
+    dynamic_process_noise_covariance: false
+    print_diagnostics: true
+    initial_estimate_covariance:   [1e-9,   1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,   1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,   1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,   1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,   1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,   1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,   1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,   1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,   1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,    1e-9,     1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,    1e-9,    1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,   1e-9,    1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,   1e-9,
+                                    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,    1e-9,     1e-9,     1e-9,     1e-9,    1e-9,    1e-9]

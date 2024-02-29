@@ -39,6 +39,8 @@ install(PROGRAMS
   ${PROJECT_NAME}/imu_republisher.py
   ${PROJECT_NAME}/rmse.py
   ${PROJECT_NAME}/lidar.py
+  ${PROJECT_NAME}/fine_tune.py
+  ${PROJECT_NAME}/bayesian_optimization.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

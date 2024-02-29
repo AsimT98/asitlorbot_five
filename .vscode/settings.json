@@ -8,5 +8,6 @@
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
     "python.analysis.autoImportCompletions": false,
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "python.REPL.enableREPLSmartSend": false
 }

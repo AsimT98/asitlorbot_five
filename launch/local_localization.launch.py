@@ -14,6 +14,7 @@ def generate_launch_description():
                    "--frame-id", "base_footprint_ekf",
                    "--child-frame-id", "imu_link_ekf"],
     )
+   
     robot_localization = Node(
         package="robot_localization",
         executable="ekf_node",
@@ -21,12 +22,7 @@ def generate_launch_description():
         output="screen",
         parameters=[os.path.join(get_package_share_directory("asitlorbot_five_localization"), "config", "ekf.yaml")],
     )
-    
-    lidar_republisher_py = Node(
-        package="asitlorbot_five_localization",
-        executable="lidar_republisher.py"
-    )
-   
+
     imu_republisher_py = Node(
         package="asitlorbot_five_localization",
         executable="imu_republisher.py"
@@ -38,8 +34,6 @@ def generate_launch_description():
     return LaunchDescription([
         static_transform_publisher,
         robot_localization,
-        # lidar_republisher_py,
         imu_republisher_py,
         rmse
-        
     ])

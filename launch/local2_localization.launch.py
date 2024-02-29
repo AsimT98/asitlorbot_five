@@ -6,34 +6,12 @@ from launch.substitutions import LaunchConfiguration
 import os
 
 def generate_launch_description():
-    static_transform_publisher = Node(
-        package="tf2_ros",
-        executable="static_transform_publisher",
-        arguments=["--x", "0", "--y", "0","--z", "0.15",
-                   "--qx", "0", "--qy", "0", "--qz", "0", "--qw", "1",
-                   "--frame-id", "base_footprint_ekf",
-                   "--child-frame-id", "imu_link_ekf"],
-    )
-    robot_localization = Node(
-        package="robot_localization",
-        executable="ekf_node",
-        name="ekf_filter_node",
-        output="screen",
-        parameters=[os.path.join(get_package_share_directory("asitlorbot_five_localization"), "config", "ekf.yaml")],
-    )
-    imu_republisher_py = Node(
-        package="asitlorbot_five_localization",
-        executable="imu_republisher.py"
-    )
+    
     rmse = Node(
         package="asitlorbot_five_localization",
-        executable="rmse.py"
+        executable="fine_tune.py"
     )
     return LaunchDescription([
-        static_transform_publisher,
-        robot_localization,
-        # lidar_republisher_py,
-        imu_republisher_py,
+     
         rmse
-        
     ])
