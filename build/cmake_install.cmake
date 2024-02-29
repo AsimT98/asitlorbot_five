@@ -82,6 +82,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/asimkumar/asitlor_ws/src/asitlorbot_five_controller/asitlorbot_five_controller/s.py"
     "/home/asimkumar/asitlor_ws/src/asitlorbot_five_controller/asitlorbot_five_controller/noisy_controller.py"
     "/home/asimkumar/asitlor_ws/src/asitlorbot_five_controller/asitlorbot_five_controller/circular_motion.py"
+    "/home/asimkumar/asitlor_ws/src/asitlorbot_five_controller/asitlorbot_five_controller/straight.py"
     )
 endif()
 

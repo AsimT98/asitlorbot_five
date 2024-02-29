@@ -33,6 +33,7 @@ install(PROGRAMS
   asitlorbot_five_controller/s.py
   asitlorbot_five_controller/noisy_controller.py
   asitlorbot_five_controller/circular_motion.py
+  asitlorbot_five_controller/straight.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

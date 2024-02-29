@@ -113,7 +113,7 @@
 			{
 				"command" : 9,
 				"file" : 3,
-				"line" : 39,
+				"line" : 40,
 				"parent" : 0
 			},
 			{
@@ -374,7 +374,8 @@
 			[
 				"asitlorbot_five_controller/s.py",
 				"asitlorbot_five_controller/noisy_controller.py",
-				"asitlorbot_five_controller/circular_motion.py"
+				"asitlorbot_five_controller/circular_motion.py",
+				"asitlorbot_five_controller/straight.py"
 			],
 			"type" : "file"
 		},
